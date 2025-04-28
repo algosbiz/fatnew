@@ -224,7 +224,7 @@
 }
 
 .animate-blink {
-  animation: blink 2s infinite;
+  animation: blink 1s infinite;
 }
 
 @keyframes slide-left-right {
@@ -299,6 +299,30 @@
 
 .neon-box-shadow {
   box-shadow: 0 0 1px #16d8f9,  0 0 1px #16d8f9, 0 0 6px #16d8f9, inset 0 0 6px #16d8f9;
+}
+.neon-box-purple {
+  box-shadow: 0 0 7px #c74fff,  0 0 7px #c74fff, 0 0 6px #c74fff, inset 0 0 6px #c74fff;
+}
+
+
+.animated-hr {
+    border: none;
+    height: 4px;
+    background: linear-gradient(70deg, #fe45e4, #16d8f9, #fe45e4);
+    background-size: 400% 400%;
+    animation: gradientMove 8s ease infinite;
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 
