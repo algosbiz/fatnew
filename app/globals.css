@@ -224,8 +224,85 @@
 }
 
 .animate-blink {
-  animation: blink 1s infinite;
+  animation: blink 2s infinite;
 }
+
+@keyframes slide-left-right {
+  0% {
+    transform: translateX(-100%); /* Mulai dari kiri luar layar */
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(50%);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-right-left {
+  0% {
+    transform: translateX(100%); /* Mulai dari kanan luar layar */
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(-50%);
+    opacity: 1;
+  }
+}
+
+/* Class untuk animasi dari kiri ke kanan */
+.animate-slide-left-right {
+  animation: slide-left-right 0.5s ease-out forwards;
+}
+
+/* Class untuk animasi dari kanan ke kiri */
+.animate-slide-right-left {
+  animation: slide-right-left 0.5s ease-out forwards;
+}
+
+/* Styling untuk background overlay yang tidak blur */
+.overlay {
+  position: fixed;
+  inset: 0;
+  /* background-color: rgba(0, 0, 0, 0.5);  */
+  /* z-index: 10; */
+}
+
+@keyframes slide-out-left {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slide-out-right {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+.animate-slide-out-left {
+  animation: slide-out-left 0.4s ease-in forwards;
+}
+
+.animate-slide-out-right {
+  animation: slide-out-right 0.4s ease-in forwards;
+}
+
+.neon-box-shadow {
+  box-shadow: 0 0 1px #16d8f9,  0 0 1px #16d8f9, 0 0 6px #16d8f9, inset 0 0 6px #16d8f9;
+}
+
+
+
 
 
 
