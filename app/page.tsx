@@ -1,39 +1,48 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { ChevronRight, Volume2, VolumeX } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { useMobile } from "@/hooks/use-mobile"
-import Marquee from "@/components/marquee"
-import BottomBar from "@/components/bottomBar"
+import { useState, useEffect, useRef } from "react";
+import { ChevronRight, Volume2, VolumeX } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useMobile } from "@/hooks/use-mobile";
+import Marquee from "@/components/marquee";
+import BottomBar from "@/components/bottomBar";
 
 export default function LandingPage() {
-  const [isClient, setIsClient] = useState(false)
-  const isMobile = useMobile()
-  const [isMuted, setIsMuted] = useState(true)
+  const [isClient, setIsClient] = useState(false);
+  const isMobile = useMobile();
+  const [isMuted, setIsMuted] = useState(true);
 
   useEffect(() => {
-    setIsClient(true)
-  }, [])
+    setIsClient(true);
+  }, []);
 
   // Function to toggle audio mute state
   const toggleMute = () => {
-    const audioElement = document.getElementById("background-audio") as HTMLAudioElement
+    const audioElement = document.getElementById("background-audio") as HTMLAudioElement;
     if (audioElement) {
-      audioElement.muted = !audioElement.muted
-      setIsMuted(!isMuted)
+      audioElement.muted = !audioElement.muted;
+      setIsMuted(!isMuted);
     }
-  }
+  };
 
   // Function to start audio (needed for mobile devices)
   const startAudio = () => {
-    const audioElement = document.getElementById("background-audio") as HTMLAudioElement
+    const audioElement = document.getElementById("background-audio") as HTMLAudioElement;
     if (audioElement) {
-      audioElement.play()
-      audioElement.muted = false
-      setIsMuted(false)
+      audioElement.play();
+      audioElement.muted = false;
+      setIsMuted(false);
     }
-  }
+  };
+
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handlePlay = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = false;
+      videoRef.current.play();
+    }
+  };
 
   return (
     <div className="relative h-screen w-full overflow-hidden">
@@ -47,7 +56,7 @@ export default function LandingPage() {
 
       {/* Video Background - Different for Mobile and Desktop */}
       {isClient && (
-        <video autoPlay loop muted playsInline className="absolute inset-0 h-full w-full object-cover">
+        <video ref={videoRef} autoPlay loop muted={false} playsInline className="absolute inset-0 h-full w-full object-cover">
           {isMobile ? (
             <source src="https://res.cloudinary.com/dlaw8kqqo/video/upload/v1745746108/desktop_pvcyev.mp4" type="video/mp4" />
           ) : (
@@ -78,7 +87,7 @@ export default function LandingPage() {
                 </span>
               </div>
             </div> */}
-            <Marquee/>
+            <Marquee />
           </div>
         </div>
       </header>
@@ -101,7 +110,7 @@ export default function LandingPage() {
             <Button
               size="lg"
               className="bg-white text-black hover:bg-white/90"
-              onClick={startAudio} // Also start audio when user interacts
+              onClick={handlePlay} // Also start audio when user interacts
             >
               Play
               {/* <ChevronRight className="ml-2 h-4 w-4" /> */}
@@ -117,7 +126,7 @@ export default function LandingPage() {
           </div>
         </div>
       </main>
-      <BottomBar/>
+      <BottomBar />
     </div>
-  )
+  );
 }
