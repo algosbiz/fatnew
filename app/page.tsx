@@ -7,6 +7,7 @@ import { useMobile } from "@/hooks/use-mobile";
 import Marquee from "@/components/marquee";
 import BottomBar from "@/components/bottomBar";
 import WindowPopup from "@/components/windowPop";
+import CircularText from "@/components/spinningText";
 
 export default function LandingPage() {
   const [isClient, setIsClient] = useState(false);
@@ -43,7 +44,15 @@ export default function LandingPage() {
     <div className="relative h-screen w-full overflow-hidden bg-black">
       {/* Landing Intro Screen */}
       {!hasStarted && (
-        <div className="absolute inset-0 z-50 flex flex-col items-center justify-center bg-black text-white text-center px-4">
+        <div
+          className="absolute inset-0 z-50 flex flex-col items-center justify-center text-white text-center px-4"
+          style={{
+            backgroundImage: "url('/bg.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+          }}
+        >
           <h1 className="text-3xl md:text-5xl font-bold mb-6">Welcome</h1>
           <Button onClick={handleStart} size="lg" className="bg-white text-black hover:bg-white/90">
             Start Your Experience
@@ -90,8 +99,8 @@ export default function LandingPage() {
                 </Button> */}
               </div>
             </div>
-            <div className="w-[100px] hidden lg:flex  justify-center cursor-pointer bg-white/10 border border-white/20 rounded z-30" onMouseEnter={() => setShowPopups(true)} onMouseLeave={() => setShowPopups(false)}>
-              <p className="text-white text-center justify-center">Hover me</p>
+            <div className=" hidden lg:flex rounded-full neon-box-style justify-center cursor-pointer bg-white/10 border border-white/20  z-30" onMouseEnter={() => setShowPopups(true)} onMouseLeave={() => setShowPopups(false)}>
+              <CircularText text="FAT*CRACKER*" onHover="speedUp" spinDuration={20} className="custom-class" />
             </div>
 
             {/* Tampilkan kedua window dengan animasi berbeda */}
@@ -99,7 +108,11 @@ export default function LandingPage() {
               <>
                 <WindowPopup title="" direction="left-right" position="left" onClose={() => setShowPopups(false)}>
                   <p>The nectar of the gods!</p>
-                  <p>The only fuel that powers Cheeto-<br/>dusted keyboards</p>
+                  <p>
+                    The only fuel that powers Cheeto-
+                    <br />
+                    dusted keyboards
+                  </p>
                   <p>Supreme stimulation</p>
                 </WindowPopup>
 

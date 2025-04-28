@@ -297,9 +297,51 @@
   animation: slide-out-right 0.4s ease-in forwards;
 }
 
+
+
 .neon-box-shadow {
-  box-shadow: 0 0 1px #16d8f9,  0 0 1px #16d8f9, 0 0 6px #16d8f9, inset 0 0 6px #16d8f9;
+  box-shadow: 0 0 10px #48b5e0,  0 0 10px #48b5e0, 0 0 16px #48b5e0, inset 0 0 16px #48b5e0;
 }
+
+.neon-box-style {
+  /* background: linear-gradient(70deg, #fe45e4, #16d8f9, #fe45e4); */
+  background-size: 400% 400%;
+  animation: gradientMove 8s ease infinite, neon-color-pulse 4s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px #48b5e0);
+  /* border-radius: 1rem; opsional */
+  padding: 1rem;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes neon-color-pulse {
+  0% {
+    filter: drop-shadow(0 0 2px #48b5e0);
+  }
+  25% {
+    filter: drop-shadow(0 0 3px #a009eb);
+  }
+  50% {
+    filter: drop-shadow(0 0 3px #48b5e0);
+  }
+  75% {
+    filter: drop-shadow(0 0 3px #48b5e0);
+  }
+  100% {
+    filter: drop-shadow(0 0 2px #48b5e0);
+  }
+}
+
 .neon-box-purple {
   box-shadow: 0 0 7px #c74fff,  0 0 7px #c74fff, 0 0 6px #c74fff, inset 0 0 6px #c74fff;
 }

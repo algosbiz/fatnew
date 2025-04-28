@@ -16,7 +16,7 @@ export default function BottomBar() {
       </div>
 
       {/* PURPLE BAR */}
-      <div className="relative lg:w-[50%] neon-box-purple bg-[#16d8f9] bg-opacity-30 lg:py-10 flex items-center justify-center px-4 md:px-12 backdrop-blur-sm   rounded-t-[35px]">
+      <div className="relative lg:w-[50%] neon-box-shadow bg-[#16d8f9] bg-opacity-20 lg:py-10 flex items-center justify-center px-4 md:px-12 backdrop-blur-md  border-gray-300 border-t-[1px] border-l-[1px] border-r-[1px] rounded-t-[35px]">
         {/* Twitter Button */}
         <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="mx-4">
           <div className=" left-10 rounded-full -top-[50px] lg:absolute hover:scale-110 transition-transform">
