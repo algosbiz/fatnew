@@ -69,7 +69,10 @@ export default function LandingPage() {
           </div> */}
           <Image src="/welcome.png" alt="" width={200} height={100} className="w-full lg:mt-[10rem] lg:w-[50%] scale-0 opacity-0 animate-[zoomIn_0.7s_ease-out_forwards] animate-slideInLeft" />
           <Image src="/fat.png" alt="" width={200} height={100} className="w-full lg:-mt-[10rem] lg:w-[70%] scale-0 opacity-0 animate-[zoomIn_0.7s_ease-out_forwards] animate-slideInRight" />
-          <Button className="lg:-mt-[6rem] bg-gradient-to-r neon-box-shadow from-purple-600 via-blue-500 to-yellow-400 text-white font-bold lg:rounded-2xl rounded-xl px-6 lg:py-11 py-7 text-base shadow-lg border-2 border-purple-400 hover:scale-105 transition-transform animate-blink">
+          <Button
+            onClick={handleStart}
+            className="lg:-mt-[6rem] bg-gradient-to-r neon-box-shadow from-purple-600 via-blue-500 to-yellow-400 text-white font-bold lg:rounded-2xl rounded-xl px-6 lg:py-11 py-7 text-base shadow-lg border-2 border-purple-400 hover:scale-105 transition-transform animate-blink"
+          >
             <Image src="/opening.png" alt="" width={240} height={100} />
           </Button>
         </div>
