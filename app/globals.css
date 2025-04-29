@@ -229,7 +229,7 @@
 
 @keyframes slide-left-right {
   0% {
-    transform: translateX(-100%); /* Mulai dari kiri luar layar */
+    transform: translateX(-100%); 
     opacity: 0;
   }
   100% {
@@ -240,7 +240,7 @@
 
 @keyframes slide-right-left {
   0% {
-    transform: translateX(100%); /* Mulai dari kanan luar layar */
+    transform: translateX(100%); 
     opacity: 0;
   }
   100% {
@@ -267,35 +267,6 @@
   /* z-index: 10; */
 }
 
-@keyframes slide-out-left {
-  0% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(-100%);
-  }
-}
-
-@keyframes slide-out-right {
-  0% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(100%);
-  }
-}
-
-.animate-slide-out-left {
-  animation: slide-out-left 0.4s ease-in forwards;
-}
-
-.animate-slide-out-right {
-  animation: slide-out-right 0.4s ease-in forwards;
-}
 
 
 
@@ -366,6 +337,96 @@
         background-position: 0% 50%;
     }
 }
+
+.btn {
+  position: relative;
+  padding: 1.5rem 3rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #a76f27;
+  background: none;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  min-width: 200px;
+  z-index: 1;
+}
+
+.neon-pulse {
+  background: #0ff;
+  border: 2px solid #0ff;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+  overflow: visible;
+}
+
+.neon-pulse::before,
+.neon-pulse::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border: 2px solid #0ff;
+  border-radius: inherit;
+  animation: pulseOut 2s ease-out infinite;
+  opacity: 0;
+}
+
+.neon-pulse::after {
+  animation-delay: 1s;
+}
+
+@keyframes pulseOut {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft 1.2s ease-out forwards;
+}
+
+.animate-slideInRight {
+  animation: slideInRight 1.2s ease-out forwards;
+}
+
+
 
 
 

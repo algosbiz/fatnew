@@ -8,6 +8,10 @@ import Marquee from "@/components/marquee";
 import BottomBar from "@/components/bottomBar";
 import WindowPopup from "@/components/windowPop";
 import CircularText from "@/components/spinningText";
+import Orb from "@/components/orb";
+import FuzzyText from "@/components/fuzzy";
+import SplashCursor from "@/components/splashCursor";
+import Image from "next/image";
 
 export default function LandingPage() {
   const [isClient, setIsClient] = useState(false);
@@ -32,7 +36,6 @@ export default function LandingPage() {
   const handleStart = () => {
     setHasStarted(true);
 
-    // Start video playback with sound
     const video = videoRef.current;
     if (video) {
       video.muted = false;
@@ -47,16 +50,27 @@ export default function LandingPage() {
         <div
           className="absolute inset-0 z-50 flex flex-col items-center justify-center text-white text-center px-4"
           style={{
-            backgroundImage: "url('/bg.jpg')",
+            backgroundImage: "url('/bg.png')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
           }}
         >
-          <h1 className="text-3xl md:text-5xl font-bold mb-6">Welcome</h1>
-          <Button onClick={handleStart} size="lg" className="bg-white text-black hover:bg-white/90">
-            Start Your Experience
-            <ChevronRight className="ml-2 h-4 w-4" />
+          {/* <SplashCursor /> */}
+          {/* <FuzzyText baseIntensity={0.2} hoverIntensity={0.5} enableHover={true}>
+            Welcome Fatty
+          </FuzzyText> */}
+
+          {/* <FuzzyText baseIntensity={0.2} hoverIntensity={0.5} enableHover={true}>
+            Fatty
+          </FuzzyText> */}
+          {/* <div style={{ width: "100%", height: "600px", position: "absolute", zIndex: 0 }}>
+            <Orb hoverIntensity={0.5} rotateOnHover={true} hue={0} forceHoverState={false} />
+          </div> */}
+          <Image src="/welcome.png" alt="" width={200} height={100} className="w-full lg:mt-[15rem] lg:w-[50%] scale-0 opacity-0 animate-[zoomIn_0.7s_ease-out_forwards] animate-slideInLeft" />
+          <Image src="/fat.png" alt="" width={200} height={100} className="w-full lg:-mt-[8rem] lg:w-[70%] scale-0 opacity-0 animate-[zoomIn_0.7s_ease-out_forwards] animate-slideInRight" />
+          <Button className="lg:-mt-[6rem] bg-gradient-to-r neon-box-shadow from-purple-600 via-blue-500 to-yellow-400 text-white font-bold lg:rounded-2xl rounded-xl px-6 lg:py-11 py-7 text-base shadow-lg border-2 border-purple-400 hover:scale-105 transition-transform animate-blink">
+            <Image src="/opening.png" alt="" width={240} height={100} />
           </Button>
         </div>
       )}
@@ -99,7 +113,7 @@ export default function LandingPage() {
                 </Button> */}
               </div>
             </div>
-            <div className=" hidden lg:flex rounded-full neon-box-style justify-center cursor-pointer bg-white/10 border border-white/20  z-30" onMouseEnter={() => setShowPopups(true)} onMouseLeave={() => setShowPopups(false)}>
+            <div className=" hidden lg:flex rounded-full neon-box-style justify-center cursor-pointer bg-white/10 border border-white/20  z-30" onMouseEnter={() => setShowPopups(true)}>
               <CircularText text="FAT*CRACKER*" onHover="speedUp" spinDuration={20} className="custom-class" />
             </div>
 
