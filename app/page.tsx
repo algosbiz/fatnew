@@ -71,7 +71,7 @@ const handleStart = () => {
           <div className="w-full flex justify-center lg:mr-[50rem]">
             <Image src="/enter.png" alt="" width={200} height={100} className="w-[40%] lg:mt-[1rem] lg:w-[20%] scale-0 opacity-0 animate-[zoomIn_0.7s_ease-out_forwards] animate-slideInLeft" />
           </div>
-          <Image src="/fat.png" alt="" width={200} height={100} className="w-full -mt-[2rem] lg:-mt-[8rem] lg:w-[70%] scale-0 opacity-0 animate-[zoomIn_0.7s_ease-out_forwards] " />
+          <Image src="/fat.png" alt="" width={200} height={100} className="w-full -mt-[2rem] lg:-mt-[8rem] lg:w-[70%] " />
           <div className="w-full flex justify-center lg:ml-[50rem]">
             <Image src="/season.png" alt="" width={200} height={100} className="w-[40%] -mt-[2rem] lg:-mt-[8rem] lg:w-[20%] scale-0 opacity-0 animate-[zoomIn_0.7s_ease-out_forwards] animate-slideInRight" />
           </div>
