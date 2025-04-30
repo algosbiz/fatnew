@@ -3,21 +3,17 @@
 import { useState, useEffect, useRef } from "react";
 import { ChevronRight, Volume2, VolumeX } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useMobile } from "@/hooks/use-mobile";
 import Marquee from "@/components/marquee";
 import BottomBar from "@/components/bottomBar";
 import WindowPopup from "@/components/windowPop";
 import CircularText from "@/components/spinningText";
-import Orb from "@/components/orb";
-import FuzzyText from "@/components/fuzzy";
-import SplashCursor from "@/components/splashCursor";
 import Image from "next/image";
 
 export default function LandingPage() {
   const [isClient, setIsClient] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
   const [showPopups, setShowPopups] = useState(false);
-  const isMobile = useMobile();
+  const [isFadingOut, setIsFadingOut] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -32,46 +28,40 @@ export default function LandingPage() {
       setIsMuted(video.muted);
     }
   };
+const handleStart = () => {
+  setIsFadingOut(true); // mulai animasi keluar
 
-  const handleStart = () => {
-    setHasStarted(true);
-
+  setTimeout(() => {
+    setHasStarted(true); // tampilkan konten utama setelah animasi selesai
     const video = videoRef.current;
     if (video) {
       video.muted = false;
       video.play();
     }
-  };
+  }, 700);
+};
+
 
   return (
     <div className="relative h-screen w-full overflow-hidden bg-black">
       {/* Landing Intro Screen */}
       {!hasStarted && (
         <div
-          className="absolute inset-0 z-50 flex flex-col items-center justify-center text-white text-center px-4"
+          className={`landing-screen absolute inset-0 z-50 flex flex-col items-center justify-center text-white text-center px-4 transition-opacity duration-700 ${isFadingOut ? "opacity-0 scale-[0.98]" : "opacity-100"}`}
           style={{
             backgroundImage: "url('/bg.png')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
+            animation: "moveBackground 30s ease-in-out infinite",
           }}
         >
-          {/* <SplashCursor /> */}
-          {/* <FuzzyText baseIntensity={0.2} hoverIntensity={0.5} enableHover={true}>
-            Welcome Fatty
-          </FuzzyText> */}
-
-          {/* <FuzzyText baseIntensity={0.2} hoverIntensity={0.5} enableHover={true}>
-            Fatty
-          </FuzzyText> */}
-          {/* <div style={{ width: "100%", height: "600px", position: "absolute", zIndex: 0 }}>
-            <Orb hoverIntensity={0.5} rotateOnHover={true} hue={0} forceHoverState={false} />
-          </div> */}
-          <Image src="/welcome.png" alt="" width={200} height={100} className="w-full lg:mt-[10rem] lg:w-[50%] scale-0 opacity-0 animate-[zoomIn_0.7s_ease-out_forwards] animate-slideInLeft" />
-          <Image src="/fat.png" alt="" width={200} height={100} className="w-full lg:-mt-[10rem] lg:w-[70%] scale-0 opacity-0 animate-[zoomIn_0.7s_ease-out_forwards] animate-slideInRight" />
+          <Image src="/enter.png" alt="" width={200} height={100} className="w-full lg:mt-[10rem] lg:w-[20%] scale-0 opacity-0 animate-[zoomIn_0.7s_ease-out_forwards] animate-slideInLeft" />
+          <Image src="/fat.png" alt="" width={200} height={100} className="w-full lg:-mt-[8rem] lg:w-[70%] scale-0 opacity-0 animate-[zoomIn_0.7s_ease-out_forwards] animate-slideInRight" />
+          <Image src="/season.png" alt="" width={200} height={100} className="w-full lg:-mt-[8rem] lg:w-[20%] scale-0 opacity-0 animate-[zoomIn_0.7s_ease-out_forwards] animate-slideInLeft" />
           <Button
             onClick={handleStart}
-            className="lg:-mt-[6rem] bg-gradient-to-r neon-box-shadow from-purple-600 via-blue-500 to-yellow-400 text-white font-bold lg:rounded-2xl rounded-xl px-6 lg:py-11 py-7 text-base shadow-lg border-2 border-purple-400 hover:scale-105 transition-transform animate-blink"
+            className="lg:-mt-[1.5rem] bg-gradient-to-r neon-box-shadow from-purple-600 via-blue-500 to-yellow-400 text-white font-bold lg:rounded-2xl rounded-xl px-6 lg:py-11 py-7 text-base shadow-lg border-2 border-purple-400 hover:scale-105 transition-transform animate-blink"
           >
             <Image src="/opening.png" alt="" width={240} height={100} />
           </Button>
@@ -91,7 +81,7 @@ export default function LandingPage() {
 
           {/* Header with Marquee */}
           <header className="absolute top-0 w-full bg-black/30 backdrop-blur-sm border-b border-white/10 z-20">
-            <div className="h-16 flex items-center px-6">
+            <div className="h-10 flex items-center px-6">
               <div className="running-text-container w-full overflow-hidden">
                 <Marquee />
               </div>
