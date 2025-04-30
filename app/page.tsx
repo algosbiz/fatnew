@@ -58,10 +58,35 @@ const handleStart = () => {
     <div className="relative h-screen w-full overflow-hidden bg-black">
       {/* Landing Intro Screen */}
       {!hasStarted && (
+        <div
+          className={`landing-screen absolute inset-0 z-50 flex flex-col items-center justify-center text-white text-center px-4 transition-opacity duration-700 ${isFadingOut ? "opacity-0 scale-[0.98]" : "opacity-100"}`}
+          style={{
+            backgroundImage: "url('/bg.png')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            animation: "moveBackground 30s ease-in-out infinite",
+          }}
+        >
+          <div className="w-full flex justify-center lg:mr-[50rem]">
+            <Image src="/enter.png" alt="" width={200} height={100} className="w-[40%] lg:mt-[1rem] lg:w-[20%] scale-0 opacity-0 animate-[zoomIn_0.7s_ease-out_forwards] animate-slideInLeft" />
+          </div>
+          <Image src="/fat.png" alt="" width={200} height={100} className="w-full -mt-[2rem] lg:-mt-[8rem] lg:w-[70%] " />
+          <div className="w-full flex justify-center lg:ml-[50rem]">
+            <Image src="/season.png" alt="" width={200} height={100} className="w-[40%] -mt-[2rem] lg:-mt-[8rem] lg:w-[20%] scale-0 opacity-0 animate-[zoomIn_0.7s_ease-out_forwards] animate-slideInRight" />
+          </div>
+          <Button
+            onClick={handleStart}
+            className="lg:-mt-[7.5rem] bg-gradient-to-r neon-box-shadow from-purple-600 via-blue-500 to-yellow-400 text-white font-bold lg:rounded-2xl rounded-xl px-6 lg:py-11 py-7 text-base shadow-lg border-2 border-purple-400 hover:scale-105 transition-transform animate-blink"
+          >
+            <Image src="/opening.png" alt="" width={240} height={100} />
+          </Button>
+        </div>
+      )}
+      {/* {!hasStarted && (
         <div className={`landing-screen absolute inset-0 z-50 flex flex-col items-center justify-center text-white text-center px-4 transition-opacity duration-700 ${isFadingOut ? "opacity-0 scale-[0.98]" : "opacity-100"}`}>
-          {/* VIDEO BACKGROUND */}
           <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover z-[-1]">
-            <source src="https://res.cloudinary.com/dlaw8kqqo/video/upload/v1746002207/Gen-4_make_alive_zoom_into_main_character_2348532487_gdrfo6.mp4" type="video/mp4" />
+            <source src="https://res.cloudinary.com/dlaw8kqqo/video/upload/v1745746108/desktop_pvcyev.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
 
@@ -79,7 +104,7 @@ const handleStart = () => {
             <Image src="/opening.png" alt="" width={240} height={100} />
           </Button>
         </div>
-      )}
+      )} */}
 
       {/* Main Experience After Start */}
       {isClient && hasStarted && (
