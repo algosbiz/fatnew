@@ -69,11 +69,11 @@ const handleStart = () => {
           }}
         >
           <div className="w-full flex justify-center lg:mr-[50rem]">
-            <Image src="/enter.png" alt="" width={200} height={100} className="w-[40%] lg:mt-[10rem] lg:w-[20%] scale-0 opacity-0 animate-[zoomIn_0.7s_ease-out_forwards] animate-slideInLeft" />
+            <Image src="/enter.png" alt="" width={200} height={100} className="w-[40%] lg:mt-[1rem] lg:w-[20%] scale-0 opacity-0 animate-[zoomIn_0.7s_ease-out_forwards] animate-slideInLeft" />
           </div>
-          <Image src="/fat.png" alt="" width={200} height={100} className="w-full -mt-[2rem] lg:-mt-[8rem] lg:w-[70%] scale-0 opacity-0 animate-[zoomIn_0.7s_ease-out_forwards] animate-slideInRight" />
+          <Image src="/fat.png" alt="" width={200} height={100} className="w-full -mt-[2rem] lg:-mt-[8rem] lg:w-[70%] scale-0 opacity-0 animate-[zoomIn_0.7s_ease-out_forwards] " />
           <div className="w-full flex justify-center lg:ml-[50rem]">
-            <Image src="/season.png" alt="" width={200} height={100} className="w-[40%] -mt-[2rem] lg:-mt-[8rem] lg:w-[20%] scale-0 opacity-0 animate-[zoomIn_0.7s_ease-out_forwards] animate-slideInLeft" />
+            <Image src="/season.png" alt="" width={200} height={100} className="w-[40%] -mt-[2rem] lg:-mt-[8rem] lg:w-[20%] scale-0 opacity-0 animate-[zoomIn_0.7s_ease-out_forwards] animate-slideInRight" />
           </div>
           <Button
             onClick={handleStart}
@@ -119,14 +119,14 @@ const handleStart = () => {
           >
             {isMuted ? <Volume2 size={20} /> : <VolumeX size={20} />}
           </button>
-          <div className="absolute top-20 left-5 gap-5 flex">
-            <button className="neon-box-gold z-20 p-1 rounded-lg bg-black/40  backdrop-blur-sm border border-white/10 text-white hover:bg-white/30 transform hover:scale-110 transition-transform duration-300">
-              <Image src={"/dex.png"} alt="dexscreen" width={40} height={40} />
+          <div className="absolute top-20 left-10 gap-5 flex">
+            <button className=" z-20 p-1 rounded-lg bg-black/40  backdrop-blur-sm border border-white/10 text-white hover:bg-white/30 transform hover:scale-110 transition-transform duration-300">
+              <Image src={"/ig.jpg"} alt="dexscreen" width={40} height={40} />
             </button>
-            <button className="neon-box-gold z-20 p-1 rounded-lg bg-black/40  backdrop-blur-sm border border-white/10 text-white hover:bg-white/30 transform hover:scale-110 transition-transform duration-300">
-              <Image src={"/ig.jpg"} alt="instagram" width={40} height={40} />
+            <button className=" z-20 p-1 rounded-lg bg-black/40  backdrop-blur-sm border border-white/10 text-white hover:bg-white/30 transform hover:scale-110 transition-transform duration-300">
+              <Image src={"/dex.png"} alt="instagram" width={40} height={40} />
             </button>
-            <button className="neon-box-gold z-20 p-1 rounded-lg bg-black/40  backdrop-blur-sm border border-white/10 text-white hover:bg-white/30 transform hover:scale-110 transition-transform duration-300">
+            <button className=" z-20 p-1 rounded-lg bg-black/40  backdrop-blur-sm border border-white/10 text-white hover:bg-white/30 transform hover:scale-110 transition-transform duration-300">
               <Image src={"/link.png"} alt="linktree" width={40} height={40} />
             </button>
           </div>
