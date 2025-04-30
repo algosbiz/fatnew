@@ -428,11 +428,11 @@
 }
 
 .animate-slideInLeft {
-  animation: slideInLeft 1.2s ease-out forwards;
+  animation: slideInLeft 4.2s ease-out forwards;
 }
 
 .animate-slideInRight {
-  animation: slideInRight 1.2s ease-out forwards;
+  animation: slideInRight 4.2s ease-out forwards;
 }
 
 @keyframes moveBackground {
