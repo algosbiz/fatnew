@@ -14,6 +14,7 @@ export default function LandingPage() {
   const [hasStarted, setHasStarted] = useState(false);
   const [showPopups, setShowPopups] = useState(false);
   const [isFadingOut, setIsFadingOut] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -39,7 +40,18 @@ const handleStart = () => {
       video.play();
     }
   }, 700);
-};
+  };
+  
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768); // sesuaikan breakpoint sesuai kebutuhanmu
+    };
+
+    handleResize(); // cek saat mount
+    window.addEventListener("resize", handleResize); // update saat resize
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
 
   return (
@@ -56,9 +68,13 @@ const handleStart = () => {
             animation: "moveBackground 30s ease-in-out infinite",
           }}
         >
-          <Image src="/enter.png" alt="" width={200} height={100} className="w-full lg:mt-[10rem] lg:w-[20%] scale-0 opacity-0 animate-[zoomIn_0.7s_ease-out_forwards] animate-slideInLeft" />
-          <Image src="/fat.png" alt="" width={200} height={100} className="w-full lg:-mt-[8rem] lg:w-[70%] scale-0 opacity-0 animate-[zoomIn_0.7s_ease-out_forwards] animate-slideInRight" />
-          <Image src="/season.png" alt="" width={200} height={100} className="w-full lg:-mt-[8rem] lg:w-[20%] scale-0 opacity-0 animate-[zoomIn_0.7s_ease-out_forwards] animate-slideInLeft" />
+          <div className="w-full flex justify-center lg:mr-[50rem]">
+            <Image src="/enter.png" alt="" width={200} height={100} className="w-[40%] lg:mt-[10rem] lg:w-[20%] scale-0 opacity-0 animate-[zoomIn_0.7s_ease-out_forwards] animate-slideInLeft" />
+          </div>
+          <Image src="/fat.png" alt="" width={200} height={100} className="w-full -mt-[2rem] lg:-mt-[8rem] lg:w-[70%] scale-0 opacity-0 animate-[zoomIn_0.7s_ease-out_forwards] animate-slideInRight" />
+          <div className="w-full flex justify-center lg:ml-[50rem]">
+            <Image src="/season.png" alt="" width={200} height={100} className="w-[40%] -mt-[2rem] lg:-mt-[8rem] lg:w-[20%] scale-0 opacity-0 animate-[zoomIn_0.7s_ease-out_forwards] animate-slideInLeft" />
+          </div>
           <Button
             onClick={handleStart}
             className="lg:-mt-[1.5rem] bg-gradient-to-r neon-box-shadow from-purple-600 via-blue-500 to-yellow-400 text-white font-bold lg:rounded-2xl rounded-xl px-6 lg:py-11 py-7 text-base shadow-lg border-2 border-purple-400 hover:scale-105 transition-transform animate-blink"
@@ -72,7 +88,14 @@ const handleStart = () => {
       {isClient && hasStarted && (
         <>
           <video ref={videoRef} autoPlay loop muted={false} playsInline className="absolute inset-0 h-full w-full object-cover z-0">
-            <source src="https://res.cloudinary.com/dlaw8kqqo/video/upload/v1745746108/desktop_pvcyev.mp4" type="video/mp4" />
+            <source
+              src={
+                isMobile
+                  ? "https://res.cloudinary.com/dlaw8kqqo/video/upload/v1745981973/IMG_5321_1_qtfdfb.mp4" // <-- video versi mobile
+                  : "https://res.cloudinary.com/dlaw8kqqo/video/upload/v1745746108/desktop_pvcyev.mp4"
+              }
+              type="video/mp4"
+            />
             Your browser does not support the video tag.
           </video>
 
@@ -81,7 +104,7 @@ const handleStart = () => {
 
           {/* Header with Marquee */}
           <header className="absolute top-0 w-full bg-black/30 backdrop-blur-sm border-b border-white/10 z-20">
-            <div className="h-10 flex items-center px-6">
+            <div className="h-16 flex items-center px-6">
               <div className="running-text-container w-full overflow-hidden">
                 <Marquee />
               </div>
