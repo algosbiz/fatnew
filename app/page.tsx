@@ -119,6 +119,17 @@ const handleStart = () => {
           >
             {isMuted ? <Volume2 size={20} /> : <VolumeX size={20} />}
           </button>
+          <div className="absolute top-20 left-5 gap-5 flex">
+            <button className="neon-box-gold z-20 p-1 rounded-lg bg-black/40  backdrop-blur-sm border border-white/10 text-white hover:bg-white/30 transform hover:scale-110 transition-transform duration-300">
+              <Image src={"/dex.png"} alt="dexscreen" width={40} height={40} />
+            </button>
+            <button className="neon-box-gold z-20 p-1 rounded-lg bg-black/40  backdrop-blur-sm border border-white/10 text-white hover:bg-white/30 transform hover:scale-110 transition-transform duration-300">
+              <Image src={"/ig.jpg"} alt="instagram" width={40} height={40} />
+            </button>
+            <button className="neon-box-gold z-20 p-1 rounded-lg bg-black/40  backdrop-blur-sm border border-white/10 text-white hover:bg-white/30 transform hover:scale-110 transition-transform duration-300">
+              <Image src={"/link.png"} alt="linktree" width={40} height={40} />
+            </button>
+          </div>
 
           {/* Main Content */}
           <main className="absolute inset-0 flex items-center justify-center px-4 text-center text-white z-10">
