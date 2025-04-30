@@ -104,7 +104,7 @@ const handleStart = () => {
 
           {/* Header with Marquee */}
           <header className="absolute top-0 w-full bg-black/30 backdrop-blur-sm border-b border-white/10 z-20">
-            <div className="h-16 flex items-center px-6">
+            <div className="h-16 flex items-center ">
               <div className="running-text-container w-full overflow-hidden">
                 <Marquee />
               </div>
