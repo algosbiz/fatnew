@@ -10,9 +10,9 @@ export default function BottomBar() {
     <div className="absolute bottom-0 w-full flex flex-col gap-10 lg:gap-0 items-center z-30">
       {/* GET YOU SUM BUTTON */}
       <div className="lg:absolute z-40 bottom-10 left-10">
-        <Button className="bg-gradient-to-r neon-box-shadow from-purple-600 via-blue-500 to-yellow-400 text-white font-bold lg:rounded-2xl rounded-xl px-6 lg:py-8 py-7 text-base shadow-lg border-2 border-purple-400 hover:scale-105 transition-transform animate-blink">
+        <Button className="bg-gradient-to-r neon-box-shadow from-purple-600 via-blue-500 to-yellow-400 text-white font-bold lg:rounded-2xl rounded-xl px-3 lg:py-8 py-7 text-base shadow-lg border-2 border-purple-400 hover:scale-105 transition-transform animate-blink">
           {/* <span className="text-yellow-300 font-semibold lg:text-4xl">GET YOU SUM</span> */}
-          <Image src="/get.png" alt="" width={300} height={100} />
+          <Image src="/get.png" alt="" width={280} height={100} />
         </Button>
       </div>
 

@@ -29,19 +29,19 @@ export default function LandingPage() {
       setIsMuted(video.muted);
     }
   };
-const handleStart = () => {
-  setIsFadingOut(true); // mulai animasi keluar
+  const handleStart = () => {
+    setIsFadingOut(true); // mulai animasi keluar
 
-  setTimeout(() => {
-    setHasStarted(true); // tampilkan konten utama setelah animasi selesai
-    const video = videoRef.current;
-    if (video) {
-      video.muted = false;
-      video.play();
-    }
-  }, 700);
+    setTimeout(() => {
+      setHasStarted(true); // tampilkan konten utama setelah animasi selesai
+      const video = videoRef.current;
+      if (video) {
+        video.muted = false;
+        video.play();
+      }
+    }, 700);
   };
-  
+
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768); // sesuaikan breakpoint sesuai kebutuhanmu
@@ -52,7 +52,6 @@ const handleStart = () => {
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-
 
   return (
     <div className="relative min-h-dvh w-full overflow-hidden bg-black">
@@ -69,7 +68,7 @@ const handleStart = () => {
           }}
         >
           <div className="w-full flex justify-center lg:mr-[50rem]">
-            <Image src="/enter.png" alt="" width={200} height={100} className="w-[40%] lg:mt-[1rem] lg:w-[20%] scale-0 opacity-0 animate-[zoomIn_0.7s_ease-out_forwards] animate-slideInLeft" />
+            <Image src="/enter.png" alt="" width={200} height={100} className="w-[40%] lg:mt-[1rem] mt-[2rem] lg:w-[20%] scale-0 opacity-0 animate-[zoomIn_0.7s_ease-out_forwards] animate-slideInLeft" />
           </div>
           <Image src="/fat.png" alt="" width={200} height={100} className="w-full -mt-[2rem] lg:-mt-[8rem] lg:w-[70%] " />
           <div className="w-full flex justify-center lg:ml-[50rem]">
@@ -77,9 +76,12 @@ const handleStart = () => {
           </div>
           <Button
             onClick={handleStart}
-            className="lg:-mt-[7.5rem] bg-gradient-to-r neon-box-shadow from-purple-600 via-blue-500 to-yellow-400 text-white font-bold lg:rounded-2xl rounded-xl px-6 lg:py-11 py-7 text-base shadow-lg border-2 border-purple-400 hover:scale-105 transition-transform animate-blink"
+            className="flex items-center justify-center
+            lg:-mt-[7.5rem] bg-gradient-to-r neon-box-shadow from-purple-600 via-blue-500 to-yellow-400
+            text-white font-bold lg:rounded-2xl rounded-xl px-6 lg:py-11 py-7 text-base shadow-lg
+            border-2 border-purple-400 hover:scale-105 transition-transform animate-blink"
           >
-            <Image src="/opening.png" alt="" width={240} height={100} />
+            <Image src="/opening.png" alt="" width={240} height={100} className="object-contain" />
           </Button>
         </div>
       )}
@@ -162,11 +164,9 @@ const handleStart = () => {
                 </Button> */}
               </div>
             </div>
-            <div className=" hidden lg:flex rounded-full neon-box-style justify-center cursor-pointer bg-white/10 border border-white/20  z-30" onMouseEnter={() => setShowPopups(true)}>
+            <div className="   rounded-full neon-box-style justify-center cursor-pointer bg-white/10 border border-white/20  z-30" onMouseEnter={() => setShowPopups(true)}>
               <CircularText text="FAT*CRACKER*" onHover="speedUp" spinDuration={20} className="custom-class" />
             </div>
-
-            {/* Tampilkan kedua window dengan animasi berbeda */}
             {showPopups && (
               <>
                 <WindowPopup title="" direction="left-right" position="left" onClose={() => setShowPopups(false)}>
