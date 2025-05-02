@@ -8,6 +8,7 @@ import BottomBar from "@/components/bottomBar";
 import WindowPopup from "@/components/windowPop";
 import CircularText from "@/components/spinningText";
 import Image from "next/image";
+import CircularTextMobile from "@/components/spinningMobile";
 
 export default function LandingPage() {
   const [isClient, setIsClient] = useState(false);
@@ -164,8 +165,11 @@ export default function LandingPage() {
                 </Button> */}
               </div>
             </div>
-            <div className="   rounded-full neon-box-style justify-center cursor-pointer bg-white/10 border border-white/20  z-30" onMouseEnter={() => setShowPopups(true)}>
+            <div className="lg:flex hidden rounded-full neon-box-style justify-center cursor-pointer bg-white/10 border border-white/20  z-30" onMouseEnter={() => setShowPopups(true)}>
               <CircularText text="FAT*CRACKER*" onHover="speedUp" spinDuration={20} className="custom-class" />
+            </div>
+            <div className="lg:hidden flex rounded-full neon-box-style justify-center cursor-pointer bg-white/10 border border-white/20  z-30">
+              <CircularTextMobile text="FAT*CRACKER*" onHover="speedUp" spinDuration={20} className="custom-class" />
             </div>
             {showPopups && (
               <>

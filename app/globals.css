@@ -284,12 +284,17 @@
 }
 
 .neon-box-style {
-  /* background: linear-gradient(70deg, #fe45e4, #16d8f9, #fe45e4); */
   background-size: 400% 400%;
   animation: gradientMove 8s ease infinite, neon-color-pulse 4s ease-in-out infinite;
   filter: drop-shadow(0 0 10px #48b5e0);
-  /* border-radius: 1rem; opsional */
+ 
   padding: 1rem;
+}
+@media (max-width: 768px) {
+  .neon-box-style {
+    background-size: 100% 100%;
+    padding: 0.15rem;
+  }
 }
 
 @keyframes gradientMove {
